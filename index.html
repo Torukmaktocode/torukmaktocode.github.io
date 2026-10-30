@@ -327,6 +327,39 @@
     margin-top: 64px;
   }
 
+  /* ---------- formación teológica ---------- */
+  .centro {
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 2;
+    letter-spacing: .04em;
+    color: var(--tinta);
+  }
+  .centro .detalle { color: var(--humo); }
+  .areas {
+    max-width: 640px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px 34px;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    line-height: 1.6;
+  }
+  .areas .area::before {
+    content: "❖";
+    font-size: 10px;
+    margin-right: 10px;
+    color: var(--humo);
+  }
+  @media (max-width: 640px) {
+    .areas { grid-template-columns: 1fr; text-align: center; max-width: 420px; }
+  }
+
   /* ---------- pie ---------- */
   .pie {
     max-width: 1200px;
@@ -484,6 +517,43 @@
       </dl>
 
       <p class="cierre">From building software<br>to engineering intelligent business ecosystems.</p>
+    </section>
+
+    <section class="caso">
+      <h2>Theology &amp; <em>Missiology.</em></h2>
+      <p class="sub">Biblical Studies · Systematic Theology · Cross-Cultural Missions</p>
+
+      <div class="bloque">
+        <p class="centro">
+          <strong>CTMVida — Centro de Treinamento Missionário Vida</strong><br>
+          <span class="detalle">Assembleia de Deus de Blumenau (ADBLU) · Blumenau, Brazil · 2012</span>
+        </p>
+        <p class="cuerpo" style="margin-top: 18px;">
+          Intensive theological and missiological formation within the institutional
+          framework of the Brazilian Assemblies of God. A multidisciplinary formation
+          encompassing biblical studies, systematic theology, hermeneutics, church
+          history, philosophy of religion, anthropology, religious studies,
+          cross-cultural missions and pastoral leadership.
+        </p>
+      </div>
+
+      <div class="bloque">
+        <p class="bloque-titulo">~ AREAS OF ACADEMIC FORMATION ~</p>
+        <div class="areas">
+          <span class="area">Biblical Exegesis &amp; Hermeneutics</span>
+          <span class="area">Old &amp; New Testament Theology</span>
+          <span class="area">Systematic &amp; Historical Theology</span>
+          <span class="area">Christology, Pneumatology &amp; Ecclesiology</span>
+          <span class="area">Philosophy of Religion &amp; Christian Apologetics</span>
+          <span class="area">Anthropology &amp; Religious Phenomenology</span>
+          <span class="area">Missiology &amp; Cross-Cultural Studies</span>
+          <span class="area">Church History &amp; Theology of Missions</span>
+          <span class="area">Homiletics, Pedagogy &amp; Pastoral Leadership</span>
+          <span class="area">Research Methodology &amp; Practical Ministry</span>
+        </div>
+      </div>
+
+      <p class="cierre">A foundation in critical thinking,<br>interpretation and cross-cultural understanding.</p>
     </section>
   </main>
 
