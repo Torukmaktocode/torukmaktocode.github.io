@@ -100,6 +100,16 @@
     text-indent: .3em;
   }
 
+  /* ---------- banner ---------- */
+  .banner {
+    margin: clamp(60px, 9vh, 110px) 0 0;
+  }
+  .banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
   /* ---------- etiqueta de sección ---------- */
   .rotulo {
     text-align: center;
@@ -321,7 +331,7 @@
 
   /* ---------- aparición al cargar ---------- */
   @media (prefers-reduced-motion: no-preference) {
-    .hero, .sep, .rotulo, .pantallas, .pie {
+    .hero, .banner, .sep, .rotulo, .pantallas, .pie {
       animation: aparecer .7s ease both;
     }
     .sep { animation-delay: .08s; }
@@ -367,6 +377,10 @@
         Un espacio abierto para explorar, construir y compartir lo que viene.
       </p>
     </section>
+
+    <figure class="banner">
+      <img src="retrato.jpg" alt="Retrato de José Ríos entre niebla azul" loading="eager" decoding="async">
+    </figure>
 
     <div class="sep" aria-hidden="true">❦</div>
 
