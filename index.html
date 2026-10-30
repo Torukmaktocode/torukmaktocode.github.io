@@ -189,40 +189,6 @@
     color: rgba(25, 23, 19, .82);
   }
 
-  /* ---------- índice de proyectos ---------- */
-  .indice {
-    max-width: 760px;
-    margin: clamp(70px, 11vh, 120px) auto 0;
-    padding: 0 32px;
-  }
-  .fila {
-    display: grid;
-    grid-template-columns: minmax(120px, 180px) 1fr auto;
-    gap: 18px;
-    align-items: baseline;
-    padding: 20px 0;
-    border-top: 1px solid var(--linea);
-    text-decoration: none;
-    transition: background .15s ease;
-  }
-  .fila:last-of-type { border-bottom: 1px solid var(--linea); }
-  .fila:hover { background: rgba(25,23,19,.035); }
-  .fila .nombre {
-    font-family: var(--serif);
-    font-size: clamp(20px, 2.2vw, 26px);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .fila .desc { color: var(--humo); font-size: 13.5px; line-height: 1.65; }
-  .fila .flecha {
-    font-size: 12px;
-    letter-spacing: .12em;
-    color: var(--tinta);
-    opacity: .45;
-  }
-  .fila:hover .flecha { opacity: 1; }
-
   /* ---------- pie ---------- */
   .manifiesto {
     font-family: var(--serif);
@@ -355,12 +321,11 @@
 
   /* ---------- aparición al cargar ---------- */
   @media (prefers-reduced-motion: no-preference) {
-    .hero, .sep, .rotulo, .pantallas, .indice, .pie {
+    .hero, .sep, .rotulo, .pantallas, .pie {
       animation: aparecer .7s ease both;
     }
     .sep { animation-delay: .08s; }
     .rotulo, .pantallas { animation-delay: .16s; }
-    .indice { animation-delay: .24s; }
     .pie { animation-delay: .3s; }
     @keyframes aparecer {
       from { opacity: 0; transform: translateY(10px); }
@@ -374,9 +339,6 @@
     .barra { padding: 22px 20px 8px; }
     .hero { padding: 56px 20px 24px; }
     .pantallas { padding: 0 20px; }
-    .indice { padding: 0 20px; }
-    .fila { grid-template-columns: 1fr auto; }
-    .fila .desc { grid-column: 1 / -1; order: 3; }
     .pie { flex-direction: column; text-align: center; }
   }
 </style>
@@ -502,31 +464,6 @@
       </dl>
 
       <p class="cierre">From building software<br>to engineering intelligent business ecosystems.</p>
-    </section>
-
-    <p class="rotulo">~ MÁS EN EL TALLER ~</p>
-
-    <section class="indice">
-      <a class="fila" href="https://github.com/Torukmaktocode/OmniRoute" target="_blank" rel="noopener">
-        <span class="nombre">OmniRoute</span>
-        <span class="desc">Pasarela de IA libre: un endpoint, 352 proveedores, más de 1.200 modelos y cambio automático entre cuotas.</span>
-        <span class="flecha">↗</span>
-      </a>
-      <a class="fila" href="https://github.com/Torukmaktocode/graphify" target="_blank" rel="noopener">
-        <span class="nombre">graphify</span>
-        <span class="desc">Convierte cualquier codebase —con su documentación y sus PDFs— en un grafo de conocimiento consultable.</span>
-        <span class="flecha">↗</span>
-      </a>
-      <a class="fila" href="https://github.com/Torukmaktocode/agentshield" target="_blank" rel="noopener">
-        <span class="nombre">agentshield</span>
-        <span class="desc">Escáner de seguridad para agentes de IA: detecta huecos en configuraciones, servidores MCP y permisos.</span>
-        <span class="flecha">↗</span>
-      </a>
-      <a class="fila" href="https://github.com/Torukmaktocode/ECC" target="_blank" rel="noopener">
-        <span class="nombre">ECC</span>
-        <span class="desc">Sistema de rendimiento para agentes de código: skills, memoria y desarrollo con instinto.</span>
-        <span class="flecha">↗</span>
-      </a>
     </section>
   </main>
 
