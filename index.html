@@ -198,6 +198,16 @@
     max-width: 30ch;
     color: rgba(25, 23, 19, .82);
   }
+  .phones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .phones .app-shot {
+    width: min(230px, 44%);
+  }
   .app-shot {
     display: block;
     width: 100%;
@@ -394,7 +404,10 @@
     <section class="pantallas">
       <article class="tarjeta">
         <h2>A WEB APP<br>FOR SELLERS</h2>
-        <img class="app-shot" style="width: min(260px, 78%);" src="Mockup%20de%20iPhone%20con%20interfaz%20Gravity%20Symbiosis.png" alt="Mockup de iPhone con la interfaz de Gravity Symbiosis mostrando la pregunta ¿Qué objeción tienes hoy?" loading="lazy" decoding="async">
+        <div class="phones">
+          <img class="app-shot" src="Mockup%20de%20iPhone%20con%20interfaz%20Gravity%20Symbiosis.png" alt="Mockup de iPhone con la interfaz de Gravity Symbiosis mostrando la pregunta ¿Qué objeción tienes hoy?" loading="lazy" decoding="async">
+          <img class="app-shot" src="Mockup%20de%20iPhone%20Gravity%20Symbiosis%20pitch%20de%20voz.png" alt="Mockup de iPhone con la interfaz de voz de Gravity Symbiosis para refinar el pitch de 60 segundos" loading="lazy" decoding="async">
+        </div>
       </article>
 
       <article class="tarjeta">
