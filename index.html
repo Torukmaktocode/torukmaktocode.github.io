@@ -224,6 +224,119 @@
   .fila:hover .flecha { opacity: 1; }
 
   /* ---------- pie ---------- */
+  .manifiesto {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(24px, 3.2vw, 38px);
+    line-height: 1.25;
+    margin-top: 44px;
+  }
+
+  /* ---------- caso de estudio ---------- */
+  .caso {
+    max-width: 860px;
+    margin: clamp(90px, 13vh, 150px) auto 0;
+    padding: 0 32px;
+    text-align: center;
+  }
+  .caso h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(42px, 6.4vw, 84px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+  }
+  .caso .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(22px, 2.8vw, 34px);
+    line-height: 1.3;
+    margin-top: 14px;
+  }
+  .caso p.cuerpo {
+    color: var(--humo);
+    max-width: 62ch;
+    margin: 0 auto;
+  }
+  .caso .aparte {
+    color: var(--humo);
+    max-width: 62ch;
+    margin: 0 auto;
+  }
+  .bloque { margin-top: 58px; }
+  .bloque-titulo {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: .18em;
+    margin-bottom: 26px;
+  }
+  .motores {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .motor {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 20px;
+    align-items: baseline;
+    padding: 15px 0;
+    border-top: 1px solid var(--linea);
+  }
+  .motores .motor:last-child { border-bottom: 1px solid var(--linea); }
+  .motor .nombre {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: .16em;
+  }
+  .motor .desc {
+    color: var(--humo);
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  .impacto {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.8vw, 32px);
+    line-height: 1.45;
+    max-width: 22ch;
+    margin: 0 auto;
+  }
+  .impacto .cli {
+    font-style: italic;
+  }
+  .stack {
+    font-size: 12.5px;
+    letter-spacing: .1em;
+    color: var(--humo);
+    max-width: 66ch;
+    margin: 0 auto;
+    line-height: 2.1;
+  }
+  .meta {
+    display: flex;
+    justify-content: center;
+    gap: 46px;
+    flex-wrap: wrap;
+    margin-top: 54px;
+    font-size: 12px;
+  }
+  .meta dt {
+    font-weight: 500;
+    letter-spacing: .16em;
+    color: var(--tinta);
+    margin-bottom: 6px;
+  }
+  .meta dd { color: var(--humo); }
+  .cierre {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(20px, 2.4vw, 27px);
+    margin-top: 64px;
+  }
+
+  /* ---------- pie ---------- */
   .pie {
     max-width: 1200px;
     margin: clamp(80px, 12vh, 130px) auto 0;
@@ -277,41 +390,121 @@
 
   <main>
     <section class="hero">
-      <h1>Construyo en público,<br>aprendo <em>en calma.</em></h1>
+      <h1>I build <em>what's next.</em></h1>
       <p class="intro">
-        Soy Jose Rios. Hago herramientas para agentes de IA y para la gente
-        que programa con ellas. Nada de esto es una vitrina: es un taller.
-        Repos abiertos, ideas en marcha, proyectos que nunca terminan del todo.
+        Soy José Ríos. Construyo software, diseño sistemas y desarrollo productos
+        tecnológicos que transforman ideas complejas en soluciones reales.
+      </p>
+      <p class="intro">
+        Exploro nuevas fronteras entre ingeniería, inteligencia artificial y
+        automatización. Me apasiona crear herramientas, experimentar con nuevas
+        tecnologías y convertir desafíos técnicos en productos capaces de generar impacto.
+      </p>
+      <p class="manifiesto">From ideas to systems.<br>From code to impact.</p>
+      <p class="intro">
+        Un espacio abierto para explorar, construir y compartir lo que viene.
       </p>
     </section>
 
     <div class="sep" aria-hidden="true">❦</div>
 
-    <p class="rotulo">~ LO QUE ESTÁ EN OBRA ~</p>
+    <p class="rotulo">~ LOS PROYECTOS ~</p>
 
     <section class="pantallas">
       <article class="tarjeta">
-        <h2>NO VITRINA.<br>NO RUIDO.</h2>
-        <div class="screen-frame" role="img" aria-label="Pantalla con degradado cálido que dice: Estoy aquí.">
+        <h2>A WEB APP<br>FOR SELLERS</h2>
+        <div class="screen-frame" role="img" aria-label="Pantalla con degradado cálido que dice: GravitySymbiosis.">
           <div class="screen-body">
             <span class="rombo">❖</span>
-            <p class="screen-title">Estoy aquí,<br>escribiendo.</p>
-            <p class="screen-sub">SIEMPRE HAY UNA RAMA<br>NUEVA EN ALGÚN LADO.</p>
+            <p class="screen-title">Gravity<i>Symbiosis.</i></p>
+            <p class="screen-sub">SELL SMARTER,<br>WITH LESS FRICTION.</p>
           </div>
         </div>
       </article>
 
       <article class="tarjeta">
-        <h2>CONSTRUIR DESPACIO<br>ES CONSTRUIR DOS VECES</h2>
-        <div class="screen-frame" role="img" aria-label="Pantalla con degradado cálido que dice: Aprendiendo.">
+        <h2>QUIET TOOLS<br>FOR EVERYDAY FAITH</h2>
+        <div class="screen-frame" role="img" aria-label="Pantalla con degradado cálido que dice: Keryx.">
           <div class="screen-body">
             <span class="rombo">❖</span>
-            <p class="screen-title">Aprendiendo<br>en público.</p>
-            <p class="screen-sub">EL CÓDIGO QUEDA.<br>LA PRISA, NO.</p>
+            <p class="screen-title"><i>Keryx.</i></p>
+            <p class="screen-sub">TECHNOLOGY THAT SERVES<br>THE QUIET HOURS.</p>
           </div>
         </div>
       </article>
     </section>
+
+    <section class="caso">
+      <h2>Gravity Symbiosis</h2>
+      <p class="sub">From an idea to a 24/7 intelligent sales assistant.</p>
+
+      <div class="bloque">
+        <p class="cuerpo">
+          Gravity nació con un desafío: transformar la manera en que las empresas
+          entrenan, acompañan y potencian a sus equipos comerciales. Lo que comenzó
+          como una plataforma de entrenamiento evolucionó hasta convertirse en un
+          asistente comercial inteligente disponible 24/7, capaz de acompañar a los
+          vendedores, resolver objeciones, entregar conocimiento y potenciar cada
+          interacción comercial.
+        </p>
+      </div>
+
+      <div class="bloque">
+        <p class="bloque-titulo">~ THE ECOSYSTEM ~</p>
+        <p class="aparte">Cinco motores. Un solo propósito.</p>
+        <div class="motores">
+          <div class="motor">
+            <span class="nombre">ALFRED</span>
+            <span class="desc">Diagnóstico de capacidades comerciales.</span>
+          </div>
+          <div class="motor">
+            <span class="nombre">TRAINER</span>
+            <span class="desc">Simulaciones de ventas mediante voz.</span>
+          </div>
+          <div class="motor">
+            <span class="nombre">CLOSER</span>
+            <span class="desc">Inteligencia y resolución de objeciones.</span>
+          </div>
+          <div class="motor">
+            <span class="nombre">SHADOW</span>
+            <span class="desc">Asistencia comercial en tiempo real.</span>
+          </div>
+          <div class="motor">
+            <span class="nombre">KNOWLEDGE</span>
+            <span class="desc">Conocimiento corporativo disponible 24/7.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bloque">
+        <p class="bloque-titulo">~ REAL-WORLD IMPACT ~</p>
+        <p class="impacto">Gravity ya forma parte de las operaciones de equipos comerciales en empresas como <span class="cli">Seguros Falabella · HELP · HOSEG · Dumay Automotoras</span></p>
+      </div>
+
+      <div class="bloque">
+        <p class="bloque-titulo">~ THE ENGINEERING ~</p>
+        <p class="stack">
+          ARQUITECTURA MODULAR · PYTHON · SUPABASE · POSTGRESQL · RAG ·
+          VECTOR SEARCH · VOICE PROCESSING · CLOUD INFRASTRUCTURE
+        </p>
+        <p class="aparte" style="margin-top: 22px;">
+          Diseñar y construir un ecosistema capaz de conectar diagnóstico,
+          aprendizaje, conocimiento y ejecución comercial en una plataforma
+          escalable, preparada para operar continuamente y responder a desafíos
+          empresariales reales.
+        </p>
+      </div>
+
+      <dl class="meta">
+        <div><dt>ROLE</dt><dd>Co-Founder &amp; CTO</dd></div>
+        <div><dt>CATEGORY</dt><dd>SalesTech · Enterprise SaaS</dd></div>
+        <div><dt>FOCUS</dt><dd>Product Engineering · AI Systems · Software Architecture</dd></div>
+      </dl>
+
+      <p class="cierre">From building software<br>to engineering intelligent business ecosystems.</p>
+    </section>
+
+    <p class="rotulo">~ MÁS EN EL TALLER ~</p>
 
     <section class="indice">
       <a class="fila" href="https://github.com/Torukmaktocode/OmniRoute" target="_blank" rel="noopener">
