@@ -38,19 +38,8 @@
     margin: 0 auto;
     padding: 28px 32px 12px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
-  .firma {
-    font-family: var(--serif);
-    font-size: 21px;
-    letter-spacing: .01em;
-    text-decoration: none;
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-  }
-  .firma .adorno { font-size: 17px; color: var(--humo); }
   .pastilla {
     font-family: var(--mono);
     font-size: 11.5px;
@@ -286,6 +275,16 @@
     color: var(--humo);
     font-size: 13.5px;
     line-height: 1.6;
+    display: block;
+  }
+  .motor .modo {
+    display: block;
+    font-weight: 500;
+    font-size: 10.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--tinta);
+    margin-bottom: 6px;
   }
   .impacto {
     font-family: var(--serif);
@@ -367,7 +366,7 @@
     padding: 34px 32px 54px;
     border-top: 1px solid var(--linea);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 16px;
     font-size: 12.5px;
@@ -398,6 +397,82 @@
     .hero { padding: 56px 20px 24px; }
     .pantallas { padding: 0 20px; }
     .pie { flex-direction: column; text-align: center; }
+
+    /* motores: nombre arriba, descripción debajo (una sola columna) */
+    .motor {
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding: 17px 0;
+    }
+    .motor .nombre {
+      font-size: 11.5px;
+      letter-spacing: .1em;
+      line-height: 1.7;
+    }
+    .motor .desc {
+      font-size: 13px;
+      letter-spacing: 0;
+      line-height: 1.7;
+      text-align: left;
+    }
+    .motores { max-width: 520px; }
+  }
+
+  /* ---------- móvil compacto ---------- */
+  @media (max-width: 640px) {
+    .caso { padding: 0 22px; }
+
+    /* títulos de bloque: menos tracking para que no corten feo */
+    .bloque-titulo {
+      font-size: 11.5px;
+      letter-spacing: .08em;
+      line-height: 1.9;
+      max-width: 34ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* filas de motores ya apiladas desde 780px; aquí solo se afina el texto */
+    .motor .desc { font-size: 13px; }
+
+    /* cita/impacto un punto más pequeño en pantalla corta */
+    .impacto { font-size: clamp(19px, 5.4vw, 24px); line-height: 1.5; }
+    .cierre { font-size: clamp(18px, 4.8vw, 22px); line-height: 1.45; }
+
+    /* áreas de formación: menos tracking, mejor lectura */
+    .areas {
+      font-size: 11px;
+      letter-spacing: .06em;
+      line-height: 1.8;
+      gap: 10px 18px;
+    }
+    .areas .area::before { margin-right: 7px; }
+
+    /* listas técnicas */
+    .stack {
+      font-size: 11.5px;
+      letter-spacing: .05em;
+      line-height: 2;
+      max-width: 100%;
+    }
+
+    /* tarjetas de proyectos */
+    .tarjeta { padding: 28px 18px 0; }
+    .tarjeta h2 { font-size: 12px; letter-spacing: .12em; line-height: 1.9; margin-bottom: 24px; }
+    .phones { flex-direction: column; gap: 28px; }
+    .phones .app-shot { width: min(230px, 88%); }
+
+    /* meta (role / category / focus) en columna centrada */
+    .meta {
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      margin-top: 44px;
+    }
+    .meta dd { line-height: 1.7; }
+
+    .centro { line-height: 1.8; }
+    .rotulo { margin-left: 20px; margin-right: 20px; letter-spacing: .14em; }
   }
 </style>
 </head>
@@ -408,7 +483,6 @@
   </figure>
 
   <header class="barra">
-    <a class="firma" href="/"><span class="adorno">❧</span> Jose Rios</a>
     <a class="pastilla" href="https://github.com/Torukmaktocode" target="_blank" rel="noopener">GitHub ↗</a>
   </header>
 
@@ -524,11 +598,13 @@
         <div class="motores">
           <div class="motor">
             <span class="nombre">CLOSER</span>
-            <span class="desc">Modo texto: escribes y responde. Inteligencia comercial que anticipa y resuelve objeciones, y desarrolla la estrategia de negociación mientras escribes. No hay otra herramienta capaz de pensar el cierre así.</span>
+            <span class="desc"><span class="modo">Modo texto</span>
+              Escribes y respondes. Inteligencia comercial que anticipa y resuelve objeciones, y desarrolla la estrategia de negociación mientras escribes. No hay otra herramienta capaz de pensar el cierre así.</span>
           </div>
           <div class="motor">
             <span class="nombre">ASISTENTE 24/7</span>
-            <span class="desc">Modo voz: conversa contigo en tiempo real. Un ecosistema completo dentro de sí mismo: coach, asesor y entrenador permanente, con el conocimiento corporativo siempre disponible y el entrenamiento de voz integrado en su interior. No existe algo igual: no acompaña tareas, desarrolla profesionales.</span>
+            <span class="desc"><span class="modo">Modo voz</span>
+              Conversa contigo en tiempo real. Un ecosistema completo dentro de sí mismo: coach, asesor y entrenador permanente, con el conocimiento corporativo siempre disponible y el entrenamiento de voz integrado en su interior. No existe algo igual: no acompaña tareas, desarrolla profesionales.</span>
           </div>
         </div>
       </div>
@@ -719,7 +795,6 @@
   </main>
 
   <footer class="pie">
-    <span>❧ hecho a mano, sin plantillas</span>
     <span>© 2026 Jose Rios · <a href="https://github.com/Torukmaktocode" target="_blank" rel="noopener">@Torukmaktocode</a></span>
   </footer>
 
