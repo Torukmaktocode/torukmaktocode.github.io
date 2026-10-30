@@ -1,41 +1,346 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jose Rios</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #0f172a, #1e3a8a);
-      color: #f1f5f9;
-      text-align: center;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jose Rios — construyendo en público</title>
+<meta name="description" content="Taller abierto de Jose Rios: herramientas para agentes de IA, proyectos en marcha y código que se aprende despacio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --papel: #F4F3EE;
+    --tarjeta: #F8F7F3;
+    --tinta: #191713;
+    --humo: #77726A;
+    --linea: #DDD9CF;
+    --punto: #D5D0C3;
+    --screens: linear-gradient(160deg, #FFE3B3 0%, #FFB37E 38%, #F97C5D 68%, #EC5FA0 100%);
+    --serif: "Instrument Serif", Georgia, serif;
+    --mono: "IBM Plex Mono", "Courier New", monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--papel);
+    color: var(--tinta);
+    font-family: var(--mono);
+    font-size: 15px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+
+  /* ---------- barra superior ---------- */
+  .barra {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 28px 32px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .firma {
+    font-family: var(--serif);
+    font-size: 21px;
+    letter-spacing: .01em;
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .firma .adorno { font-size: 17px; color: var(--humo); }
+  .pastilla {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: var(--tinta);
+    color: var(--papel);
+    padding: 13px 22px;
+    border-radius: 100px;
+    transition: background .18s ease, color .18s ease;
+    white-space: nowrap;
+  }
+  .pastilla:hover { background: #3a362f; }
+  .pastilla:focus-visible,
+  a:focus-visible { outline: 2px solid var(--tinta); outline-offset: 3px; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(70px, 12vh, 130px) 32px 30px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(46px, 8.2vw, 118px);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+  }
+  .hero h1 em { font-style: italic; }
+  .hero p.intro {
+    max-width: 60ch;
+    margin: 46px auto 0;
+    color: var(--humo);
+  }
+  .sep {
+    max-width: 1200px;
+    margin: clamp(60px, 10vh, 110px) auto 0;
+    text-align: center;
+    color: var(--tinta);
+    font-family: var(--serif);
+    font-size: 22px;
+    letter-spacing: .3em;
+    text-indent: .3em;
+  }
+
+  /* ---------- etiqueta de sección ---------- */
+  .rotulo {
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .18em;
+    color: var(--tinta);
+    margin: clamp(64px, 10vh, 120px) 24px 34px;
+  }
+
+  /* ---------- tarjetas de puntos con pantalla ---------- */
+  .pantallas {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+  }
+  .tarjeta {
+    background: var(--tarjeta);
+    border: 1px solid var(--linea);
+    border-radius: 22px;
+    background-image: radial-gradient(circle, var(--punto) 1px, transparent 1px);
+    background-size: 24px 24px;
+    padding: clamp(28px, 4vw, 48px) clamp(22px, 3vw, 40px) 0;
+    text-align: center;
+  }
+  .tarjeta h2 {
+    font-family: var(--mono);
+    font-size: 13.5px;
+    font-weight: 500;
+    letter-spacing: .16em;
+    line-height: 2;
+    margin-bottom: 34px;
+  }
+  .screen-frame {
+    width: min(340px, 88%);
+    margin: 0 auto;
+    aspect-ratio: 10 / 12.4;
+    background: var(--screens);
+    border: 1.5px solid #2b2823;
+    border-bottom: none;
+    border-radius: 40px 40px 0 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 0 transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .screen-frame::before {
+    /* muesca tipo teléfono */
+    content: "";
+    width: 34%;
+    height: 22px;
+    background: #111;
+    border-radius: 100px;
+    margin-top: 18px;
+    flex: none;
+  }
+  .screen-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 10px 26px 30px;
+    text-align: center;
+  }
+  .screen-body .rombo { font-size: 15px; color: var(--tinta); line-height: 1; }
+  .screen-title {
+    font-family: var(--serif);
+    font-size: clamp(26px, 2.6vw, 34px);
+    line-height: 1.12;
+    letter-spacing: .01em;
+  }
+  .screen-sub {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: .16em;
+    line-height: 1.9;
+    max-width: 30ch;
+    color: rgba(25, 23, 19, .82);
+  }
+
+  /* ---------- índice de proyectos ---------- */
+  .indice {
+    max-width: 760px;
+    margin: clamp(70px, 11vh, 120px) auto 0;
+    padding: 0 32px;
+  }
+  .fila {
+    display: grid;
+    grid-template-columns: minmax(120px, 180px) 1fr auto;
+    gap: 18px;
+    align-items: baseline;
+    padding: 20px 0;
+    border-top: 1px solid var(--linea);
+    text-decoration: none;
+    transition: background .15s ease;
+  }
+  .fila:last-of-type { border-bottom: 1px solid var(--linea); }
+  .fila:hover { background: rgba(25,23,19,.035); }
+  .fila .nombre {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.2vw, 26px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .fila .desc { color: var(--humo); font-size: 13.5px; line-height: 1.65; }
+  .fila .flecha {
+    font-size: 12px;
+    letter-spacing: .12em;
+    color: var(--tinta);
+    opacity: .45;
+  }
+  .fila:hover .flecha { opacity: 1; }
+
+  /* ---------- pie ---------- */
+  .pie {
+    max-width: 1200px;
+    margin: clamp(80px, 12vh, 130px) auto 0;
+    padding: 34px 32px 54px;
+    border-top: 1px solid var(--linea);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-size: 12.5px;
+    color: var(--humo);
+    flex-wrap: wrap;
+  }
+  .pie a { text-decoration: none; color: var(--tinta); border-bottom: 1px solid var(--linea); }
+  .pie a:hover { border-bottom-color: var(--tinta); }
+
+  /* ---------- aparición al cargar ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero, .sep, .rotulo, .pantallas, .indice, .pie {
+      animation: aparecer .7s ease both;
     }
-    .card { max-width: 600px; padding: 2rem; }
-    h1 { font-size: 2.5rem; margin-bottom: .5rem; }
-    p  { font-size: 1.1rem; color: #94a3b8; margin-bottom: 1.5rem; }
-    a.button {
-      display: inline-block;
-      padding: .7rem 1.5rem;
-      background: #3b82f6;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
+    .sep { animation-delay: .08s; }
+    .rotulo, .pantallas { animation-delay: .16s; }
+    .indice { animation-delay: .24s; }
+    .pie { animation-delay: .3s; }
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: none; }
     }
-    a.button:hover { background: #2563eb; }
-  </style>
+  }
+
+  /* ---------- móvil ---------- */
+  @media (max-width: 780px) {
+    .pantallas { grid-template-columns: 1fr; max-width: 520px; }
+    .barra { padding: 22px 20px 8px; }
+    .hero { padding: 56px 20px 24px; }
+    .pantallas { padding: 0 20px; }
+    .indice { padding: 0 20px; }
+    .fila { grid-template-columns: 1fr auto; }
+    .fila .desc { grid-column: 1 / -1; order: 3; }
+    .pie { flex-direction: column; text-align: center; }
+  }
+</style>
 </head>
 <body>
-  <div class="card">
-    <h1>Jose Rios</h1>
-    <p>Desarrollador / Estudiante</p>
-    <a class="button" href="https://github.com/Torukmaktocode">Ver mi GitHub</a>
-  </div>
+
+  <header class="barra">
+    <a class="firma" href="/"><span class="adorno">❧</span> Jose Rios</a>
+    <a class="pastilla" href="https://github.com/Torukmaktocode" target="_blank" rel="noopener">GitHub ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Construyo en público,<br>aprendo <em>en calma.</em></h1>
+      <p class="intro">
+        Soy Jose Rios. Hago herramientas para agentes de IA y para la gente
+        que programa con ellas. Nada de esto es una vitrina: es un taller.
+        Repos abiertos, ideas en marcha, proyectos que nunca terminan del todo.
+      </p>
+    </section>
+
+    <div class="sep" aria-hidden="true">❦</div>
+
+    <p class="rotulo">~ LO QUE ESTÁ EN OBRA ~</p>
+
+    <section class="pantallas">
+      <article class="tarjeta">
+        <h2>NO VITRINA.<br>NO RUIDO.</h2>
+        <div class="screen-frame" role="img" aria-label="Pantalla con degradado cálido que dice: Estoy aquí.">
+          <div class="screen-body">
+            <span class="rombo">❖</span>
+            <p class="screen-title">Estoy aquí,<br>escribiendo.</p>
+            <p class="screen-sub">SIEMPRE HAY UNA RAMA<br>NUEVA EN ALGÚN LADO.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="tarjeta">
+        <h2>CONSTRUIR DESPACIO<br>ES CONSTRUIR DOS VECES</h2>
+        <div class="screen-frame" role="img" aria-label="Pantalla con degradado cálido que dice: Aprendiendo.">
+          <div class="screen-body">
+            <span class="rombo">❖</span>
+            <p class="screen-title">Aprendiendo<br>en público.</p>
+            <p class="screen-sub">EL CÓDIGO QUEDA.<br>LA PRISA, NO.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="indice">
+      <a class="fila" href="https://github.com/Torukmaktocode/OmniRoute" target="_blank" rel="noopener">
+        <span class="nombre">OmniRoute</span>
+        <span class="desc">Pasarela de IA libre: un endpoint, 352 proveedores, más de 1.200 modelos y cambio automático entre cuotas.</span>
+        <span class="flecha">↗</span>
+      </a>
+      <a class="fila" href="https://github.com/Torukmaktocode/graphify" target="_blank" rel="noopener">
+        <span class="nombre">graphify</span>
+        <span class="desc">Convierte cualquier codebase —con su documentación y sus PDFs— en un grafo de conocimiento consultable.</span>
+        <span class="flecha">↗</span>
+      </a>
+      <a class="fila" href="https://github.com/Torukmaktocode/agentshield" target="_blank" rel="noopener">
+        <span class="nombre">agentshield</span>
+        <span class="desc">Escáner de seguridad para agentes de IA: detecta huecos en configuraciones, servidores MCP y permisos.</span>
+        <span class="flecha">↗</span>
+      </a>
+      <a class="fila" href="https://github.com/Torukmaktocode/ECC" target="_blank" rel="noopener">
+        <span class="nombre">ECC</span>
+        <span class="desc">Sistema de rendimiento para agentes de código: skills, memoria y desarrollo con instinto.</span>
+        <span class="flecha">↗</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <span>❧ hecho a mano, sin plantillas</span>
+    <span>© 2026 Jose Rios · <a href="https://github.com/Torukmaktocode" target="_blank" rel="noopener">@Torukmaktocode</a></span>
+  </footer>
+
 </body>
 </html>
